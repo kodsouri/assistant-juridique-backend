@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres-db:
+    image: postgres:15-alpine
+    container_name: juritn-postgres
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_DB=juritn_db
+      - POSTGRES_USER=juritn_user
+      - POSTGRES_PASSWORD=juritn_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
